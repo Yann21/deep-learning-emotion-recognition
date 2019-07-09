@@ -129,6 +129,8 @@ class DataGenerator(Sequence):
         slice_labels = lambda n: pd.IndexSlice[
             self.sequence_size * (self._training_step * self.batch_size + n + 1)] # Predict next value
         
+	  print('QUICK IMPORT DEBUG:', self._sample_data)
+        
         # Setting up sequences for this batch
         for n in range(self.batch_size):
             # Verify there's no corrupted data
@@ -166,7 +168,4 @@ class DataGenerator(Sequence):
         WINDOW_SIZE = 150
         print('DEBUG types:', type(labels), type(moving_average(labels, 150))
         return moving_average(labels, WINDOW_SIZE)
-
-a = DataGenerator(7501, 128, 8, ['ECG'])
-print(a)
 
