@@ -164,3 +164,7 @@ class DataGenerator(Sequence):
         'Moving average'
         WINDOW_SIZE = 150
         moving_average(labels, WINDOW_SIZE)
+
+a = DataGenenerator(7501, 128, 8, ['ECG'])
+print(a)
+
