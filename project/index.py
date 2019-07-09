@@ -64,6 +64,3 @@ facial_localisation = {
     'Face Bounding Box': 'features_video_face_bounding_box',   # 4d Bounding box of the face at all time / Attention here
     'Facial Landmarks' : 'features_video_facial_landmarks',    # 98
 }
-
-if __name__ == __main__.py:
-	print('INDEX FILE FOR PATHS')
