@@ -99,6 +99,7 @@ class DataGenerator(Sequence):
         labels = extract_labels_arff(tag_to_path['Gold Standard'], sample).iloc[:, self.sonder_switch]
         
         if self.toggle_preproces:
+        	print('DEBUG whats in the box: ', self.preprocessing(labels)
             self._sample_labels = self.preprocessing(labels)
         else:
             self._sample_labels = labels
@@ -163,7 +164,8 @@ class DataGenerator(Sequence):
     def preprocessing(self, labels):
         'Moving average'
         WINDOW_SIZE = 150
-        moving_average(labels, WINDOW_SIZE)
+        print('DEBUG types:', type(labels), type(moving_average(labels, 150))
+        return moving_average(labels, WINDOW_SIZE)
 
 a = DataGenerator(7501, 128, 8, ['ECG'])
 print(a)
