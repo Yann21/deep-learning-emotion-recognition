@@ -133,7 +133,7 @@ class DataGenerator(Sequence):
         
         # Setting up sequences for this batch
         for n in range(self.batch_size):
-            # Verify there's no corrupted data
+            # Make sur there's no corrupted data
             concatenated = self._sample_data.loc[slice_data_sequence(n), :]
             # Apply our custom fusion
             batch_x[n] = self._custom_fusion(concatenated.to_numpy())
@@ -165,6 +165,8 @@ class DataGenerator(Sequence):
         
     def preprocessing(self, labels):
         'Moving average'
+        WINDOW_SIZE = 150
+        return moving_average(labels, WINDOW_SIZE)
         WINDOW_SIZE = 150
         print('DEBUG types:', type(labels), type(moving_average(labels, 150))
         return moving_average(labels, WINDOW_SIZE)
